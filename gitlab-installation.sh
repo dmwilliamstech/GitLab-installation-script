@@ -49,7 +49,7 @@ yum install cronie
 echo "Retrieving and installing GitLab rpm"
 RPM_FILE=gitlab-ce-7.12~omnibus.1-1.x86_64.rpm
 cd ~/
-wget https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-7.12.0~omnibus.1-1.x86_64.rpm
+wget https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-7.12.0~omnibus.1-1.x86_64.rpm --directory-prefix=~/
 if [ -f ~/$RPM_FILE ];
 then
   echo "Installing GitLab rpm"
