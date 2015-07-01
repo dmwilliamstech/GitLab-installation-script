@@ -53,7 +53,7 @@ wget https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-7.12.0
 if [ -f ~/$RPM_FILE ];
 then
   echo "Installing GitLab rpm"
-  rpm -ivh $RPM_FILE
+  rpm -ivh ~/$RPM_FILE
 else
   echo "This '$RPM_FILE' is missing"
 fi
