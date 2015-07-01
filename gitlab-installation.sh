@@ -48,19 +48,19 @@ yum install cronie
 
 echo "Retrieving and installing GitLab rpm"
 RPM_FILE=gitlab-ce-7.12.0~omnibus.1-1.x86_64.rpm
-cd ~/
-wget https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-7.12.0~omnibus.1-1.x86_64.rpm --directory-prefix=~/
-if [ -f ~/$RPM_FILE ];
+cd /home/$USER
+wget https://packages.gitlab.com/gitlab/gitlab-ce/packages/el/7/gitlab-ce-7.12.0~omnibus.1-1.x86_64.rpm --directory-prefix=/home/$USER
+if [ -f /home/$USER/$RPM_FILE ];
 then
   echo "Installing GitLab rpm"
-  rpm -ivh ~/$RPM_FILE
+  rpm -ivh /home/$USER/$RPM_FILE
 else
   echo "This '$RPM_FILE' is missing"
 fi
 
 echo "Configure Gitlab to run on desired IP and Port"
 GITLAB_CONFIG=/etc/gitlab/gitlab.rb
-if [ -f ~/$GITLAB_CONFIG ];
+if [ -f /home/$USER/$GITLAB_CONFIG ];
 then
   echo "Configuring GitLab URL and Port"
   sed -i 's/^external_url .*$/external_url ${git_ip}:${git_port}/' $GITLAB_CONFIG
